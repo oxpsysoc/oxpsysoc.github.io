@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>memflow project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?display=swap&family=Quicksand:ital,wght@0,400;0,700;1,400;1,700&family=Oxygen:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="styles.css"></head>
+</head>
+<body class="fadein">
+    <canvas id="glcanvas"></canvas>
+    <script type="text/javascript" src="/static/js/renderer.js"></script>
+
+    <header class="pre-navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="/"><img src="/static/img/about/ops_logo.png" height="40px"></img></a>
+            <!-- Hamburger icon -->
+            <input class="side-menu" type="checkbox" id="side-menu"/>
+            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        </div>
+        <!-- Menu -->
+        <ul class="navbar">
+            
+            <li>
+            <a class="button" href="/" onclick="document.getElementById('side-menu').checked = false">Home</a>
+            </li>
+            
+            <li>
+            <a class="button" href="about/#welcome" onclick="document.getElementById('side-menu').checked = false">Welcome</a>
+            </li>
+            
+            <li>
+            <a class="button" href="about/#manifesto" onclick="document.getElementById('side-menu').checked = false">Manifesto</a>
+            </li>
+            
+            <li>
+            <a class="button" href="about/#things-we-do" onclick="document.getElementById('side-menu').checked = false">Things We Do</a>
+            </li>
+            
+            <li>
+            <a class="button" href="about/#gallery" onclick="document.getElementById('side-menu').checked = false">Gallery</a>
+            </li>
+            
+            <li>
+            <a class="button" href="about/#donate" onclick="document.getElementById('side-menu').checked = false">Donate</a>
+            </li>
+            
+        </ul>
+    </header>
+
+    <div class="root">
+        <div class="pre-content">
+            <div class="content">
+                <div class="centered">
+
+<p><img src="/static/img/ops_logo.png" width="500"/></p>
+<p>Welcome to the Psychedelic Society of the University of Oxford. We organise talks and events on medical research and public policy in psychopharmacology and psychedelic culture. Everyone is welcome! ♥</p>
+<p>Sign up to our mailing list to learn about our upcoming events, and browse the site for more info.</p>
+<p><a class="button" target="_blank" href="http://eepurl.com/gQyihT">Signup</a></p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript">
+        document.body.classList.remove('fadein');
+        document.body.classList.add('hidden');
+        window.addEventListener('load', function () {
+            document.body.classList.add('fadein');
+            document.body.classList.remove('hidden');
+        });
+    </script>
+</html>
