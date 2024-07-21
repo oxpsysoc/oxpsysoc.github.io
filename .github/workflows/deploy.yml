@@ -1,0 +1,31 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+
+# Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+permissions:
+  pages: write
+  id-token: write
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Run Script
+        run: |
+          pip3 install -r requirements.txt
+          python3 main.py
+
+      - name: Deploy 🚀 (yes, an emoji)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: output
