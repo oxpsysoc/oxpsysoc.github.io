@@ -133,10 +133,6 @@ img {
   padding-left: inherit;
   padding-right: inherit;
   margin-right: 10px; }
-  .navbar a {
-    color: white; }
-  .navbar a:hover {
-    background-color: gray; }
   .navbar li {
     list-style: none;
     width: 100%; }
