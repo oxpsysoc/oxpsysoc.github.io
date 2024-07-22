@@ -1,0 +1,123 @@
+
+$mobile_width: 800px;
+
+.autoscale-section {
+  max-width: calc(min(100%, 40vw))!important;
+}
+
+section .autoscale {
+  @extend .autoscale-section
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.centered {
+  text-align: center;
+}
+
+.bordered-base {
+  margin: 2rem;
+  float: none;
+}
+
+.bordered {
+  @extend .bordered-base;
+}
+
+.centered {
+  --alignment: center;
+  --flex-alignment: center;
+  text-align: center;
+  justify-content: center;
+  text-align: var(--alignment);
+  //width: 50%;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+}
+
+.bordered-centered {
+  @extend .bordered;
+  @extend .centered;
+}
+
+.flex1 {
+  flex: 1 1 0px;
+  width: 0;
+}
+
+.flex2 {
+  flex: 2 1 0px;
+  width: 0;
+}
+
+.float-right {
+  display: block;
+  float: right;
+  //margin: 1rem 2rem;
+}
+
+.block-image {
+  float: left;
+}
+
+.float-left {
+  float: left;
+  display: block;
+  //margin: 1rem 2rem;
+}
+
+[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+  //margin: 1rem 2rem;
+}
+
+// Size dependent
+
+@media (max-width: $mobile_width) {
+  section {
+    display: block;
+  }
+
+  .bordered {
+    margin: 1rem;
+  }
+
+  .flex1 {
+    width: 100%;
+  }
+
+  .flex2 {
+    width: 100%;
+  }
+
+  .autoscale-section {
+    max-width: calc(min(100%, 30vw))!important;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: $mobile_width) {
+  .mobile-only {
+    display: none;
+  }
+
+  .bordered-desktop {
+    margin: 2rem;
+    float: none;
+  }
+}

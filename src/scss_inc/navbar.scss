@@ -1,0 +1,150 @@
+// Navbar
+
+@import 'colors.scss';
+
+// Default (desktop) settings
+
+.logo {
+  display: inline-block;
+  text-align: left;
+  color: $logo;
+}
+
+.pre-navbar {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 100;
+
+  background-color: black;
+  box-shadow: 1px 1px 5px 0px $color1;
+  height: 64px;
+
+  .logo {
+    padding: 10px 20px;
+  }
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding-left: inherit;
+  padding-right: inherit;
+  margin-right: 10px;
+
+  li {
+    list-style: none;
+    width: 100%;
+  }
+
+  .button {
+    width: auto;
+  }
+}
+
+// Hide the checkbox - it's only used for state storage
+.side-menu {
+  display: none;
+}
+
+// Hide the hamburger icon on desktop
+.hamb {
+  display: none;
+}
+
+// Mobile settings
+@media (max-width: 900px) {
+  // Stack logo+hamburger and menu listings vertically
+  .pre-navbar {
+    display: block;
+  }
+
+  .navbar {
+    height: 0;
+    display: none;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0;
+    padding: 0;
+    margin: 0;
+
+    .button {
+      padding: 0;
+      border-radius: 0;
+      width: 100%;
+    }
+  }
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // Sort out the hamburger button
+
+  .hamb {
+    display: block;
+    cursor: pointer;
+    float: right;
+    padding: 20px 0px;
+  }
+
+  .hamb-line {
+    background: $color1;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+  }
+
+  .hamb-line::before,
+  .hamb-line::after {
+    background: $color1;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  .hamb-line::before {
+    top: 5px;
+  }
+  .hamb-line::after {
+    top: -5px;
+  }
+
+  .side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+  }
+
+  .side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+  }
+
+  .side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  // Fade the navigation menus in
+  header:has(.logo .side-menu:checked) .navbar {
+    height: auto;
+    display: flex;
+    animation: fadein 500ms;
+    box-shadow: 1px 1px 5px 0px $color1;
+  }
+
+  body:has(.side-menu:checked) {
+    overflow: hidden;
+  }
+}
+
