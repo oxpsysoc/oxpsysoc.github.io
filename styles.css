@@ -69,7 +69,7 @@ img { object-fit: contain; filter: drop-shadow(5px 2px 6px #000000); }
 
 .profile-img { margin-right: 1em; border-radius: 100%; width: 32px; height: 32px; }
 
-.pre-content { display: inline-block; max-width: 100%; text-align: left; }
+.pre-content { display: inline-block; max-width: 100%; text-align: left; backdrop-filter: blur(2px); }
 
 .content { margin: 30px; overflow: hidden; }
 
