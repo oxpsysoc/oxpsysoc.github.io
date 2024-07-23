@@ -35,6 +35,7 @@ section {
   display: inline-block;
   max-width: 100%;
   text-align: left;
+  backdrop-filter: blur(2px);
 }
 
 .content {

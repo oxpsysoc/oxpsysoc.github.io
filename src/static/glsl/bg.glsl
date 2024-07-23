@@ -85,11 +85,29 @@ vec3 palette2(vec3 inColor, vec2 uv) {
     return hsv2rgb(hsv);
 }
 
+// Smoothly max the input value.
+//
+// `start` begins the smooth max
+// `end` is the lowest value to reach
+// `pushFrom` is the value which will equal to `end`
+//
+// `d` values from `pushFrom` all the way to `start` will then be parabollically interpolated
+// between `start` and `end`.
+float smoothmax(float d, float start, float end, float pushFrom) {
+    d = max(d, pushFrom) - pushFrom;
+
+    float frac = d / start;
+    float l = (1. - frac);
+    l *= l;
+
+    return d + pushFrom + l * end;
+}
+
 void main() {
     vec2 texCoord = v_texCoord * u_res;
     vec2 uv = (texCoord * 2.0 - u_res.xy) / u_res.y;
 
-    uv = kaleido(uv, u_scroll / u_res.y + u_time * 0.1, 1. * pow(2. * max(length((u_mouse.xy - u_res.xy * 0.5) / u_res.xy), 0.1), 2.));
+    uv = kaleido(uv, u_scroll / u_res.y + u_time * 0.1, 1. * pow(2. * smoothmax(length((u_mouse.xy - u_res.xy * 0.5) / u_res.xy), 0.2, 0.1, 0.0), 2.));
     vec2 uv0 = uv;
     vec3 finalColor = vec3(0.0);
 
