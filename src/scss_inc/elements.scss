@@ -3,6 +3,20 @@
   color: $color1;
 }
 
+.icon {
+  fill: $color1;
+  width: 3em;
+  height: 3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: fill 0.25s ease;
+  padding: 0 0.5em;
+}
+.icon:hover {
+  fill: #FEE303
+}
+
 .code-inline {
   white-space: nowrap;
   background-color: #1e1e1e;
